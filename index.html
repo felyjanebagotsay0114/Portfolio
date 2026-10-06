@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fely Jane Bagotsay's portfolio featuring Max and Biscuit's Big Forest Adventure, an AI-generated kids animated story.">
+  <title>Fely Jane Bagotsay | Virtual Assistant &amp; Kids Animated Story</title>
+  <style>
+    :root { --ink:#1f2926; --muted:#65716c; --paper:#f7f5ef; --cream:#eee9dd; --sage:#b7c9b5; --deep-sage:#355149; --coral:#d97b61; --line:rgba(31,41,38,.16); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Georgia,'Times New Roman',serif; line-height:1.6; }
+    a { color:inherit; }
+    .site-header { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:18px 6vw; background:rgba(247,245,239,.94); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
+    .logo { font-size:1.05rem; font-weight:bold; letter-spacing:.04em; text-decoration:none; }
+    nav { display:flex; gap:24px; font-family:Arial,sans-serif; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; }
+    nav a { text-decoration:none; }
+    nav a:hover { color:var(--coral); }
+    .hero { display:grid; grid-template-columns:1.15fr .85fr; align-items:center; min-height:620px; padding:72px 10vw; background:linear-gradient(120deg,var(--cream) 0 65%,var(--sage) 65% 100%); }
+    .eyebrow,.section-label { color:var(--coral); font-family:Arial,sans-serif; font-size:.72rem; font-weight:bold; text-transform:uppercase; letter-spacing:.16em; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:700px; margin-bottom:22px; font-size:clamp(3.5rem,8vw,7.6rem); line-height:.9; letter-spacing:-.04em; font-weight:normal; }
+    h2 { margin-bottom:20px; font-size:clamp(2.4rem,5vw,4.7rem); line-height:1; font-weight:normal; }
+    h3 { margin-bottom:10px; font-size:1.35rem; }
+    .hero-copy { max-width:590px; color:var(--deep-sage); font-size:1.25rem; }
+    .button { display:inline-block; margin-top:18px; padding:13px 22px; border:0; color:var(--paper); background:var(--deep-sage); font-family:Arial,sans-serif; font-size:.78rem; font-weight:bold; text-decoration:none; text-transform:uppercase; letter-spacing:.1em; cursor:pointer; }
+    .button:hover { background:var(--coral); }
+    .portrait-wrap { justify-self:center; position:relative; perspective:1200px; transform-style:preserve-3d; }
+    .portrait-wrap::before { content:''; position:absolute; inset:28px -12px -12px 32px; background:var(--coral); transform:translateZ(-36px) rotate(-4deg); opacity:.8; }
+    .portrait-wrap::after { content:''; position:absolute; inset:18px -22px -22px 22px; border:1px solid var(--deep-sage); z-index:0; transform:translateZ(-18px); }
+    .portrait { position:relative; z-index:1; display:block; width:min(560px,85vw); height:auto; max-height:680px; object-fit:contain; border-radius:220px 220px 8px 8px; transform:rotateX(0deg) rotateY(0deg) translateZ(24px); transform-style:preserve-3d; filter:drop-shadow(20px 24px 18px rgba(31,41,38,.2)); transition:transform .18s ease-out, filter .18s ease-out; }
+    @media (prefers-reduced-motion:reduce) { .portrait { transition:none; } }
+    section { padding:110px 10vw; }
+    .section-grid { display:grid; grid-template-columns:.75fr 1.25fr; gap:10vw; align-items:start; }
+    .section-intro { color:var(--muted); font-size:1.18rem; }
+    .skills { color:var(--paper); background:var(--deep-sage); }
+    .skill-list { display:grid; grid-template-columns:repeat(2,1fr); gap:0 36px; }
+    .skill { padding:18px 0; border-top:1px solid rgba(247,245,239,.3); font-size:1.15rem; }
+    .skill span { display:block; color:var(--sage); font-family:Arial,sans-serif; font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; }
+    .services { background:var(--cream); }
+    .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .service { min-height:220px; padding:26px; border:1px solid var(--line); background:rgba(255,255,255,.22); }
+    .service-number { color:var(--coral); font-family:Arial,sans-serif; font-size:.8rem; }
+    .service p,.contact p { color:var(--muted); }
+    .experience { background:var(--paper); }
+    .experience-list { display:grid; gap:34px; }
+    .experience-intro { position:relative; min-height:420px; padding:42px 34px; display:flex; flex-direction:column; justify-content:center; overflow:hidden; background:var(--paper) url('Output/Email photo.jgp.jpg') center/cover no-repeat; }
+    .experience-intro::before { content:''; position:absolute; inset:0; background:rgba(247,245,239,.8); }
+    .experience-intro > * { position:relative; z-index:1; }
+    .experience-item { padding-bottom:28px; border-bottom:1px solid var(--line); }
+    .experience-meta { color:var(--coral); font-family:Arial,sans-serif; font-size:.72rem; font-weight:bold; text-transform:uppercase; letter-spacing:.1em; }
+    .experience-item h3 { margin:7px 0 12px; }
+    .experience-item ul { margin:0; padding-left:20px; color:var(--muted); }
+    .capabilities { color:var(--paper); background:var(--deep-sage); }
+    .value-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px 32px; margin:0; padding:0; list-style:none; }
+    .why { background:var(--cream); }
+    .why-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:7vw; align-items:start; }
+    .why-intro { position:relative; min-height:680px; padding:56px 42px; display:flex; flex-direction:column; justify-content:center; overflow:hidden; background:var(--cream) url('Output/Profile01.jpg.png') center/cover no-repeat; }
+    .why-intro::before { content:''; position:absolute; inset:0; background:rgba(247,245,239,.78); }
+    .why-intro > * { position:relative; z-index:1; }
+    .value-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; color:var(--muted); }
+    .value-card { min-height:170px; padding:22px; border:1px solid var(--line); background:rgba(255,255,255,.28); }
+    .value-card h3 { color:var(--ink); margin-bottom:10px; font-size:1.15rem; line-height:1.25; }
+    .value-card ul { margin:0; padding-left:20px; }
+    .value-card li { padding:4px 0; font-size:1rem; line-height:1.45; }
+    .contact { padding:76px 10vw; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5vw; }
+    .contact-grid > div:first-child { position:relative; min-height:0; padding:28px; overflow:hidden; background:var(--paper) url('Output/Profile01.jpg.png') center/cover no-repeat; }
+    .contact-grid > div:first-child::before { content:''; position:absolute; inset:0; background:rgba(247,245,239,.8); }
+    .contact-grid > div:first-child > * { position:relative; z-index:1; }
+    .contact-grid > form { position:relative; padding:28px; overflow:hidden; background:var(--paper) url('Output/Profile01.jpg.png') center/cover no-repeat; }
+    .contact-grid > form::before { content:''; position:absolute; inset:0; background:rgba(247,245,239,.84); }
+    .contact-grid > form > * { position:relative; z-index:1; }
+    .contact-link { display:block; padding:6px 0; border-bottom:1px solid var(--line); font-size:1rem; text-decoration:none; }
+    .contact-link:hover { color:var(--coral); }
+    .availability { margin:18px 0; padding:16px 18px; background:var(--cream); }
+    .availability h3 { margin-bottom:10px; }
+    .availability ul { margin:0; padding-left:20px; color:var(--muted); }
+    .social-links { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:16px; }
+    .social-link { display:flex; align-items:center; gap:12px; min-width:0; padding:10px; border:1px solid var(--line); font-family:Arial,sans-serif; font-size:.7rem; font-weight:bold; text-decoration:none; text-transform:uppercase; letter-spacing:.05em; }
+    .social-link:hover { color:var(--coral); border-color:var(--coral); }
+    .social-link img { width:34px; height:34px; flex:0 0 34px; object-fit:contain; }
+    .social-link img.facebook-icon { mix-blend-mode:multiply; }
+    .workspace { position:relative; display:grid; grid-template-columns:1fr 1fr; min-height:520px; padding:0; background:linear-gradient(135deg, var(--deep-sage) 0%, #1f3a35 52%, #10221f 100%); color:var(--paper); overflow:hidden; perspective:1600px; }
+    .workspace::before { content:''; position:absolute; inset:26px 34px 26px 44px; border:1px solid rgba(255,255,255,.22); transform:rotateX(10deg) rotateY(18deg) translateZ(-20px); }
+    .workspace::after { content:''; position:absolute; inset:52px 16px 18px 58px; background:linear-gradient(135deg, rgba(183,201,181,.18), rgba(255,255,255,0)); transform:rotateX(10deg) rotateY(-16deg) translateZ(-40px); }
+    .workspace-copy { position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center; padding:80px 10vw; transform:translateZ(30px); }
+    .workspace-copy p { color:var(--sage); }
+    .workspace-image { position:relative; z-index:1; display:block; width:100%; height:auto; max-height:620px; object-fit:contain; background:var(--cream); border:1px solid rgba(31,41,38,.12); box-shadow:0 8px 20px rgba(16,34,31,.2); }
+    .social { background:var(--sage); }
+    .social-grid { display:grid; grid-template-columns:.75fr 1.25fr; gap:8vw; align-items:start; }
+    .social-list { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .social-list article { padding:20px; border:1px solid rgba(31,41,38,.25); }
+    .social-list p { color:var(--deep-sage); }
+    .projects { background:var(--paper); }
+    .projects .section-grid { grid-template-columns:1fr; gap:36px; }
+    .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:36px; }
+    .project-card { overflow:hidden; border:1px solid var(--line); background:var(--cream); }
+    .project-card video,.project-card iframe { display:block; width:100%; height:260px; border:0; background:#000; }
+    .project-card video { object-fit:cover; }
+    .project-card--story { grid-column:1/-1; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); }
+    .project-card--story video,.project-card--story iframe { height:100%; min-height:360px; }
+    .project-card--story video { object-fit:contain; }
+    .project-card--story .project-copy { padding:clamp(24px,4vw,48px); }
+    .project-card--story h3 { font-size:clamp(1.7rem,3vw,2.3rem); }
+    .project-tools { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 0; padding:0; list-style:none; }
+    .project-tools li { padding:7px 10px; border:1px solid var(--line); color:var(--deep-sage); font-family:Arial,sans-serif; font-size:.68rem; font-weight:bold; letter-spacing:.05em; text-transform:uppercase; }
+    .project-card--pdf .project-preview { display:grid; place-items:center; min-height:260px; padding:0; background:linear-gradient(135deg, #f6efe7, #d9e2d8); color:var(--deep-sage); text-align:center; overflow:hidden; }
+    .project-card--pdf .project-preview span { display:inline-block; padding:8px 12px; border:1px solid rgba(53,81,73,.35); font-family:Arial,sans-serif; font-size:.72rem; font-weight:bold; letter-spacing:.12em; text-transform:uppercase; }
+    .project-card--pdf .project-preview p { margin:18px 0 0; font-size:1.2rem; }
+    .project-card--pdf .project-preview object { display:block; width:100%; height:100%; min-height:260px; border:0; background:#fff; }
+    .project-card--pdf .project-preview .pdf-fallback { display:grid; place-items:center; min-height:260px; padding:24px; }
+    .project-copy { padding:18px 18px 20px; }
+    .project-tag { margin:0 0 8px; color:var(--coral); font-family:Arial,sans-serif; font-size:.68rem; font-weight:bold; text-transform:uppercase; letter-spacing:.12em; }
+    .project-card h3 { margin:0 0 12px; font-size:1.4rem; }
+    .project-link { display:inline-block; color:var(--deep-sage); font-family:Arial,sans-serif; font-size:.72rem; font-weight:bold; letter-spacing:.09em; text-decoration:none; text-transform:uppercase; }
+    .project-link:hover { color:var(--coral); }
+    .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:36px; }
+    .gallery img,.gallery video { display:block; width:100%; height:auto; max-height:300px; object-fit:contain; background:var(--paper); }
+    .graphic-carousel { position:relative; display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:14px; margin-top:36px; padding:18px; border:1px solid rgba(31,41,38,.18); background:rgba(255,255,255,.16); }
+    .carousel-viewport { overflow:hidden; }
+    .carousel-track { display:flex; transition:transform .4s ease; }
+    .carousel-slide { flex:0 0 100%; margin:0; text-align:center; }
+    .carousel-slide img { display:block; width:100%; max-height:440px; object-fit:contain; background:var(--paper); border:1px solid rgba(31,41,38,.12); }
+    .carousel-slide figcaption { margin-top:12px; color:var(--deep-sage); font-family:Arial,sans-serif; font-size:.72rem; font-weight:bold; letter-spacing:.14em; text-transform:uppercase; }
+    .carousel-btn { width:42px; height:42px; border:1px solid rgba(31,41,38,.35); background:var(--paper); color:var(--deep-sage); font-size:1.2rem; cursor:pointer; }
+    .carousel-btn:hover { border-color:var(--coral); color:var(--coral); }
+    .carousel-dots { display:flex; justify-content:center; gap:8px; margin-top:16px; }
+    .carousel-dots button { width:10px; height:10px; padding:0; border:0; border-radius:50%; background:rgba(31,41,38,.25); cursor:pointer; }
+    .carousel-dots button.is-active { background:var(--coral); }
+    .video-sample { position:relative; display:flex; align-items:center; min-height:300px; padding:18px; overflow:hidden; background:var(--paper) url('Graphic Images/sample graphic 01.png') center/cover no-repeat; }
+    .video-sample::before { content:''; position:absolute; inset:0; background:rgba(31,41,38,.5); }
+    .video-sample video { position:relative; z-index:1; max-height:264px; background:#000; }
+    .tools { background:var(--cream); }
+    .tool-list { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; margin:0; padding:0; list-style:none; }
+    .tool-list li { display:grid; place-items:center; padding:0; }
+    .tool-list img { display:block; width:92px; height:92px; object-fit:contain; mix-blend-mode:multiply; }
+    .goal { background:var(--deep-sage); color:var(--paper); text-align:center; }
+    .goal p { max-width:760px; margin:0 auto; color:var(--sage); font-size:1.25rem; }
+    .certificates { background:var(--paper); }
+    .certificate-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .certificate-grid figure { margin:0; }
+    .certificate-grid img { display:block; width:100%; height:auto; max-height:320px; object-fit:contain; border:1px solid var(--line); background:var(--cream); }
+    .certificate-grid figcaption { margin-top:8px; color:var(--muted); font-family:Arial,sans-serif; font-size:.72rem; }
+    form { display:grid; gap:10px; }
+    form > div, form p { margin:0; }
+    form br { display:none; }
+    label { display:block; margin-bottom:4px; font-family:Arial,sans-serif; font-size:.7rem; font-weight:bold; text-transform:uppercase; letter-spacing:.1em; }
+    input,textarea { width:100%; margin:0; padding:10px 12px; border:1px solid var(--line); border-radius:0; background:transparent; color:var(--ink); font:inherit; }
+    .contact-grid input,.contact-grid textarea { padding:7px 10px; font-size:.9rem; }
+    .contact-grid textarea { min-height:80px; }
+    textarea { min-height:100px; resize:vertical; }
+    footer { padding:24px 10vw; color:var(--paper); background:var(--ink); font-family:Arial,sans-serif; font-size:.75rem; }
+    @media (max-width:700px) { .site-header{align-items:flex-start;flex-direction:column;gap:10px} nav{width:100%;justify-content:space-between;gap:8px;font-size:.65rem;overflow:auto} .hero{grid-template-columns:1fr;gap:56px;padding:72px 8vw 100px;background:var(--cream)} h1{font-size:4.2rem} .portrait-wrap{order:-1} section{padding:76px 8vw} .section-grid,.contact-grid,.why-grid,.social-grid{grid-template-columns:1fr;gap:30px} .service-grid,.value-grid,.social-list,.certificate-grid{grid-template-columns:1fr} .workspace{grid-template-columns:1fr} .workspace-copy{padding:76px 8vw} .why-intro{min-height:520px;padding:42px 28px} .contact-grid > div:first-child,.contact-grid > form{min-height:0;padding:28px} .gallery{grid-template-columns:1fr} .tool-list{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:700px) { .project-card--story { grid-template-columns:1fr; } .project-card--story video,.project-card--story iframe { height:240px; min-height:0; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><a class="logo" href="#top">FJB</a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav></header>
+  <main id="top">
+    <section class="hero"><div><p class="eyebrow">Virtual Assistant · Executive Support</p><h1>Make room for the work that matters.</h1><p class="hero-copy">I’m Fely Jane Bagotsay, a thoughtful virtual assistant who brings structure, clarity, and momentum to busy teams and business owners.</p><a class="button" href="#contact">Let’s work together</a></div><div class="portrait-wrap"><img class="portrait" src="Output/Profile.jpg.png" alt="Fely Jane Bagotsay"></div></section>
+    <section class="workspace" id="workspace"><img class="workspace-image" src="Output/Working%20Station01.jpg.png" alt="Fely Jane's virtual assistant workspace"><div class="workspace-copy"><p class="section-label">Built for focus. Designed for results.</p><h2>More than just a setup.</h2><p>This is my command center: a dedicated workspace where tasks are managed efficiently, deadlines are met, and clients can focus on growing their business with peace of mind.</p><p>Reliable &nbsp;|&nbsp; Organized &nbsp;|&nbsp; Detail-oriented &nbsp;|&nbsp; Ready for remote support</p></div></section>
+    <section class="about" id="about"><div class="section-grid"><div><p class="section-label">01 / About Me</p><h2>Organized by nature, helpful by choice.</h2></div><div class="section-intro"><p>I am a detail-oriented Virtual Assistant and aspiring Executive Assistant with hands-on experience in administrative support, data entry, and workflow coordination.</p><p>I help entrepreneurs, business owners, and professionals stay organized by managing schedules, maintaining accurate records, and supporting daily operations. I am skilled in using Google Workspace and task management tools to ensure efficient workflows.</p><p>I am experienced in handling confidential documents with professionalism and maintaining high levels of accuracy. I also create basic Canva content, edit short-form videos using CapCut, and engage with audiences on Facebook.</p><p>I am reliable, organized, and adaptable, with a strong commitment to delivering accurate and high-quality work in a remote environment.</p></div></div></section>
+    <section class="services" id="services"><p class="section-label">02 / Services</p><h2>How I can support your business.</h2><div class="service-grid"><article class="service"><span class="service-number">01</span><h3>Email Management</h3><p>Organizing inboxes, responding professionally, and ensuring no important messages are missed.</p></article><article class="service"><span class="service-number">02</span><h3>Calendar &amp; Schedule Management</h3><p>Coordinating meetings, appointments, and reminders efficiently.</p></article><article class="service"><span class="service-number">03</span><h3>Data Entry &amp; Data Management</h3><p>Maintaining accurate records with attention to detail and consistency.</p></article><article class="service"><span class="service-number">04</span><h3>Task &amp; Workflow Coordination</h3><p>Prioritizing tasks, preparing documents, and keeping operations running smoothly.</p></article><article class="service"><span class="service-number">05</span><h3>Social Media Support</h3><p>Creating Canva content, editing videos with CapCut, and engaging with audiences.</p></article><article class="service"><span class="service-number">06</span><h3>Research &amp; Administrative Support</h3><p>Supporting research, reporting, confidential records, and everyday business needs.</p></article></div></section>
+    <section class="experience" id="experience"><div class="section-grid"><div class="experience-intro"><p class="section-label">03 / Experience</p><h2>Reliable support, backed by real practice.</h2></div><div class="experience-list"><article class="experience-item"><span class="experience-meta">Sept 2019 - March 2026</span><h3>Project Coordinator</h3><ul><li>Managed and organized 100+ project files and reports monthly.</li><li>Maintained daily tracking sheets with 95-100% data accuracy.</li><li>Processed 50-100 data entries per day with consistency.</li><li>Assisted in coordinating schedules, tasks, and documentation.</li><li>Supported internal communication and report preparation.</li><li>Handled confidential records with professionalism.</li></ul></article><article class="experience-item"><span class="experience-meta">Feb 2026 - April 2026</span><h3>Virtual Assistant Intern | Social Media Support</h3><ul><li>Assisted in calendar organization and workflow coordination using ClickUp.</li><li>Supported email and administrative tasks with accuracy.</li><li>Managed CRM data using HubSpot.</li><li>Created Canva content and edited videos using CapCut.</li><li>Engaged with Facebook comments and messages.</li><li>Completed 30-50 daily tasks efficiently in a remote setup.</li></ul></article></div></div></section>
+    <section class="why" id="why"><div class="why-grid"><div class="why-intro"><p class="section-label">04 / Why Work With Me</p><h2>A dedicated partner for your day-to-day.</h2><p class="section-intro">Choosing the right Virtual Assistant can make a big difference in your productivity and business growth. Here is what you can expect when working with me.</p></div><div class="value-grid"><article class="value-card"><h3>Accuracy &amp; Detail</h3><ul><li>Fast, accurate, and detail-focused work</li><li>Quick adaptability to tools and tasks</li></ul></article><article class="value-card"><h3>Time &amp; Communication</h3><ul><li>Strong time management and deadline commitment</li><li>Clear communication and consistent updates</li></ul></article><article class="value-card"><h3>Organized Operations</h3><ul><li>Organized and efficient workflow handling</li><li>Smooth and organized business operations</li><li>A reliable support system you can count on</li></ul></article><article class="value-card"><h3>Business Growth</h3><ul><li>More free time to focus on your business growth</li><li>Reduced stress from daily administrative tasks</li><li>A dedicated assistant who treats your goals as a priority</li></ul></article></div></div></section>
+    <section class="social"><div class="social-grid"><div><p class="section-label">05 / Social Media Management</p><h2>Consistent, creative, and clear.</h2><p>From content planning to simple reporting, I support the day-to-day work behind a healthy social presence.</p></div><div class="social-list"><article><h3>Content Creation &amp; Scheduling</h3><p>Planning and scheduling content to ensure consistent posting and brand visibility.</p></article><article><h3>Page Management &amp; Engagement</h3><p>Responding to comments, messages, and basic audience interactions.</p></article><article><h3>Graphic Design</h3><p>Clean, attractive, branded visuals for posts, stories, and promotions using Canva.</p></article><article><h3>Video Editing</h3><p>Engaging, smooth short-form videos edited with CapCut.</p></article><article><h3>Analytics &amp; Reporting</h3><p>Simple performance reports to understand growth and engagement.</p></article></div></div><div class="graphic-carousel" aria-label="Graphic carousel"><button class="carousel-btn" type="button" data-action="prev" aria-label="Previous graphic">&#8249;</button><div class="carousel-viewport"><div class="carousel-track"><figure class="carousel-slide"><img src="Graphic Images/Sample AI Work.jpg.png" alt="Sample AI work"><figcaption>AI Work</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/Graphic.jpg.png" alt="Graphic design sample"><figcaption>Graphic</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/Promotion Flyer.png" alt="Promotion flyer design"><figcaption>Promotion Flyer</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/sample graphic 01.png" alt="Sample graphic 01"><figcaption>Sample 01</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/Sample Graphic 02.jpg.png" alt="Sample graphic 02"><figcaption>Sample 02</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/SAMPLE CAROUSEL GRAPHIC .png" alt="Sample carousel graphic"><figcaption>Sample Carousel Graphic</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/2.png" alt="Graphic 2"><figcaption>2</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/3.png" alt="Graphic 3"><figcaption>3</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/4.png" alt="Graphic 4"><figcaption>4</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/5.png" alt="Graphic 5"><figcaption>5</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/6.png" alt="Graphic 6"><figcaption>6</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/7.png" alt="Graphic 7"><figcaption>7</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/8.png" alt="Graphic 8"><figcaption>8</figcaption></figure><figure class="carousel-slide"><img src="Graphic Images/9.png" alt="Graphic 9"><figcaption>9</figcaption></figure></div></div><button class="carousel-btn" type="button" data-action="next" aria-label="Next graphic">&#8250;</button></div><div class="carousel-dots" aria-label="Graphic selector"><button class="is-active" type="button" data-index="0" aria-label="Show AI Work"></button><button type="button" data-index="1" aria-label="Show Graphic"></button><button type="button" data-index="2" aria-label="Show Promotion Flyer"></button><button type="button" data-index="3" aria-label="Show Sample 01"></button><button type="button" data-index="4" aria-label="Show Sample 02"></button><button type="button" data-index="5" aria-label="Show Sample Carousel Graphic"></button><button type="button" data-index="6" aria-label="Show graphic 2"></button><button type="button" data-index="7" aria-label="Show graphic 3"></button><button type="button" data-index="8" aria-label="Show graphic 4"></button><button type="button" data-index="9" aria-label="Show graphic 5"></button><button type="button" data-index="10" aria-label="Show graphic 6"></button><button type="button" data-index="11" aria-label="Show graphic 7"></button><button type="button" data-index="12" aria-label="Show graphic 8"></button><button type="button" data-index="13" aria-label="Show graphic 9"></button></div></section>
+    <section class="projects" id="projects">
+      <div class="section-grid">
+        <div>
+          <p class="section-label">06 / Featured Projects</p>
+          <h2>Stories, brought to life.</h2>
+          <p class="section-intro">A kids animated story alongside my video and motion design work for food, beauty, and lifestyle content.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card project-card--story">
+            <iframe src="https://www.youtube-nocookie.com/embed/Gt5yJOK3HhY" title="Max and Biscuit's Big Forest Adventure, an AI animated story for kids" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="project-copy">
+              <p class="project-tag">Kids Animated Story · YouTube</p>
+              <h3>Max and Biscuit's Big Forest Adventure</h3>
+              <p>An AI animated story for kids ages 4–8 and their parents. Join Max and Biscuit as they explore a magical forest, make new friends, and discover a gentle moral lesson in 8–10 short scenes. Told in a colorful 3D animated children's style, it's a bedtime story video families can enjoy together.</p>
+              <p><strong>Story:</strong> A children's story with a moral about friendship, kindness, and the discoveries waiting in nature.</p>
+              <ul class="project-tools" aria-label="Tools used">
+                <li>AI image generation</li>
+                <li>Canva</li>
+                <li>Voiceover</li>
+                <li>Video editor</li>
+              </ul>
+              <a class="project-link" href="https://youtu.be/Gt5yJOK3HhY?si=fMMyqDzrT-0inwBW" target="_blank" rel="noopener noreferrer">Watch full story on YouTube</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <iframe src="https://www.youtube-nocookie.com/embed/ZNX_qLYO_KA" title="Swipe Motion Animation - Food" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="project-copy">
+              <p class="project-tag">Food</p>
+              <h3>Swipe Motion Animation</h3>
+              <a class="project-link" href="https://youtu.be/ZNX_qLYO_KA" target="_blank" rel="noopener noreferrer">Watch project on YouTube</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <iframe src="https://www.youtube-nocookie.com/embed/pRDxYTQVJaE" title="Lemon Animation Video Ad" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="project-copy">
+              <p class="project-tag">Product Ad</p>
+              <h3>Lemon Animation Video Ad</h3>
+              <a class="project-link" href="https://youtu.be/pRDxYTQVJaE" target="_blank" rel="noopener noreferrer">Watch project on YouTube</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <iframe src="https://www.youtube-nocookie.com/embed/jUsoulAWExk" title="Lipstick Animated Video Ads" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="project-copy">
+              <p class="project-tag">Beauty</p>
+              <h3>Lipstick Animated Video Ads</h3>
+              <a class="project-link" href="https://youtu.be/jUsoulAWExk" target="_blank" rel="noopener noreferrer">Watch project on YouTube</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <iframe src="https://www.youtube.com/embed/zq3OgwNmXpA?rel=0" title="Coffee Motion Graphics" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="project-copy">
+              <p class="project-tag">Beverage</p>
+              <h3>Coffee Motion Graphics</h3>
+              <a class="project-link" href="https://www.youtube.com/watch?v=zq3OgwNmXpA" target="_blank" rel="noopener noreferrer">Watch project on YouTube</a>
+            </div>
+          </article>
+          <article class="project-card project-card--pdf">
+            <div class="project-preview">
+              <object data="Graphic%20Images/Little%20Artists%20by%20Jane%20.pdf" type="application/pdf" aria-label="Little Artists by Jane preview">
+                <div class="pdf-fallback">
+                  <span>PDF</span>
+                  <p>Little Artists by Jane</p>
+                </div>
+              </object>
+            </div>
+            <div class="project-copy">
+              <p class="project-tag">Brand / Kids</p>
+              <h3>Little Artists by Jane</h3>
+              <a class="project-link" href="Graphic%20Images/Little%20Artists%20by%20Jane%20.pdf" target="_blank" rel="noreferrer">Open project</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="skills" id="skills"><div class="section-grid"><div><p class="section-label">06 / Core Skills</p><h2>Practical skills for dependable support.</h2></div><div class="skill-list"><div class="skill"><span>01</span>Executive &amp; Administrative Support</div><div class="skill"><span>02</span>Calendar &amp; Schedule Management</div><div class="skill"><span>03</span>Email Management &amp; Professional Communication</div><div class="skill"><span>04</span>Data Entry &amp; Data Accuracy</div><div class="skill"><span>05</span>Task Prioritization &amp; Time Management</div><div class="skill"><span>06</span>Project &amp; Workflow Coordination</div><div class="skill"><span>07</span>Document &amp; File Organization</div><div class="skill"><span>08</span>Online Research &amp; Data Collection</div><div class="skill"><span>09</span>Social Media Content &amp; Engagement</div><div class="skill"><span>10</span>Attention to Detail &amp; Confidentiality</div></div></div></section>
+    <section class="tools"><p class="section-label">10 / Tools &amp; Platforms</p><h2>Comfortable in your everyday toolkit.</h2><ul class="tool-list"><li><img src="Icon/GoogleWorkspace.jpg" alt="Google Workspace"></li><li><img src="Icon/GoogleDrive.jpg" alt="Google Drive"></li><li><img src="Icon/Canva.png" alt="Canva"></li><li><img src="Icon/Capcut.png" alt="CapCut"></li><li><img src="Icon/Hubspot.jpg" alt="HubSpot"></li><li><img src="Icon/Chatgpt.jpg" alt="ChatGPT"></li><li><img src="Icon/Claude.jpg" alt="Claude"></li><li><img src="Icon/Msteam.jpg" alt="Microsoft Teams"></li><li><img src="Icon/Zoom.jpg" alt="Zoom"></li><li><img src="Icon/GoogleMeet.jpg" alt="Google Meet"></li><li><img src="Icon/Microsoft%20Excel%20%26%20Word.jpg" alt="Microsoft Excel and Word"></li><li><img src="Icon/Capilot.png" alt="Microsoft Copilot"></li></ul></section>
+    <section class="goal"><p class="section-label">11 / My Goal</p><h2>Support that creates better business days.</h2><p>My goal is to become a trusted Virtual Assistant who helps clients simplify their workload, improve productivity, and achieve better business results through reliable and consistent support.</p></section>
+    <section class="certificates"><p class="section-label">12 / My Certificates</p><h2>Always learning, always improving.</h2><div class="certificate-grid"><figure><img src="Output/Certificate_of_Completion Introduction of Bookkeeping.png" alt="Introduction of Bookkeeping certificate"><figcaption>Introduction of Bookkeeping</figcaption></figure><figure><img src="Output/Certificate_of_Completion Journalizing Transaction.png" alt="Journalizing Transaction certificate"><figcaption>Journalizing Transaction</figcaption></figure><figure><img src="Output/Certificate_of_Completion Posting Transactions.png" alt="Posting Transactions certificate"><figcaption>Posting Transactions</figcaption></figure><figure><img src="Output/Certificate Basic Graphic.png" alt="Basic Graphic certificate"><figcaption>Basic Graphic Design</figcaption></figure><figure><img src="Output/Certificate for Basic Video Editing.png" alt="Basic Video Editing certificate"><figcaption>Basic Video Editing</figcaption></figure><figure><img src="Output/Certificate SMM.png" alt="Social Media Management certificate"><figcaption>Social Media Management</figcaption></figure></div></section>
+    <section class="contact" id="contact"><div class="contact-grid"><div><p class="section-label">13 / Let’s Work Together</p><h2>Let’s build something productive together.</h2><p>I’m excited to collaborate with clients who need reliable, organized, and detail-oriented Virtual Assistant support. Whether it’s administrative tasks, scheduling, data management, or digital tools, I’m ready to help streamline your workflow and achieve your goals.</p><div class="availability"><h3>Availability</h3><ul><li>Open for Virtual Assistant opportunities</li><li>Available for part-time or freelance projects</li><li>Ready to start immediately</li></ul></div><p class="section-label">Contact Information</p><a class="contact-link" href="mailto:felyjanebagotsay0114@gmail.com">felyjanebagotsay0114@gmail.com</a><div class="social-links"><a class="social-link" href="https://www.upwork.com/freelancers/~01f42d100efde68f53?mp_source=share" target="_blank" rel="noopener noreferrer"><img src="Icon/Upwork.jpg" alt="">Upwork</a><a class="social-link" href="https://v2.onlinejobs.ph/jobseekers/info/2767829" target="_blank" rel="noopener noreferrer"><img src="Icon/olj icon.jpg.jpg" alt="">OnlineJobs.ph</a><a class="social-link" href="https://www.facebook.com/FelyJaneBagotsay/" target="_blank" rel="noopener noreferrer"><img class="facebook-icon" src="Icon/Facebook.jpg" alt="">Facebook</a><a class="social-link" href="https://www.instagram.com/felyjanebagotsay/" target="_blank" rel="noopener noreferrer"><img src="Icon/Ig icon.jpg.jpg" alt="">Instagram</a><a class="social-link" href="https://www.linkedin.com/in/fely-jane-bagotsay-b5a01023a/" target="_blank" rel="noopener noreferrer"><img src="Icon/Linkin icon.jpg.jpg" alt="">LinkedIn</a><a class="social-link" href="https://web.whatsapp.com/09453800007" target="_blank" rel="noopener noreferrer"><img src="Icon/Whatsup Icon.jpg.jpg" alt="">WhatsApp</a></div></div><form action="mailto:felyjanebagotsay0114@gmail.com" method="post" enctype="text/plain"><div><label for="name">Name</label><input id="name" name="name" type="text" required></div><div><label for="email">Email</label><input id="email" name="email" type="email" required></div><div><label for="message">How can I help?</label><textarea id="message" name="message" required></textarea></div><button class="button" type="submit">Send inquiry</button></form></div></section>
+  </main>
+  <footer>© 2026 Fely Jane Bagotsay · Virtual Assistant</footer>
+  <script>
+    const portraitWrap = document.querySelector('.portrait-wrap');
+    const portrait = document.querySelector('.portrait');
+    const carouselTrack = document.querySelector('.carousel-track');
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+    const carouselButtons = document.querySelectorAll('.carousel-btn');
+    const carouselDots = document.querySelectorAll('.carousel-dots button');
+
+    if (portraitWrap && portrait && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      portraitWrap.addEventListener('pointermove', (event) => {
+        const bounds = portraitWrap.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        portrait.style.transform = `rotateX(${y * -8}deg) rotateY(${x * 10}deg) translateZ(24px)`;
+      });
+      portraitWrap.addEventListener('pointerleave', () => {
+        portrait.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(24px)';
+      });
+    }
+
+    if (carouselTrack && carouselSlides.length) {
+      let currentSlide = 0;
+      const showSlide = (index) => {
+        currentSlide = (index + carouselSlides.length) % carouselSlides.length;
+        carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        carouselDots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('is-active', dotIndex === currentSlide);
+        });
+      };
+
+      carouselButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const action = button.dataset.action;
+          showSlide(action === 'next' ? currentSlide + 1 : currentSlide - 1);
+        });
+      });
+
+      carouselDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          showSlide(Number(dot.dataset.index));
+        });
+      });
+    }
+
+  </script>
+</body>
+</html>
